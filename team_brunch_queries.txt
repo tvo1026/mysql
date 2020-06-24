@@ -1,0 +1,88 @@
+USE team_brunch_db;
+-- 5 SELECT queries AS VIEWS 
+ 
+-- All employees' salary records
+CREATE OR REPLACE VIEW employee_salary AS 
+SELECT oe.employee_id, CONCAT(e.first_name, ', ', e.last_name) AS full_name, i.industry_name, d.department_name, CAST(er.net_pay AS SIGNED) AS net_pay, CONVERT(er.gross_pay, SIGNED) AS gross_pay, ROUND(SUM(er.gross_pay - er.net_pay)) AS deduction
+FROM employees e JOIN org_emp oe ON e.employee_id = oe.employee_id 
+JOIN emp_records er ON e.employee_id = er.employee_id 
+JOIN departments d ON oe.department_id = d.department_id 
+JOIN industries i ON d.industry_id = i.industry_id 
+GROUP BY oe.employee_id, i.industry_name, d.department_name, net_pay, gross_pay;
+SELECT employee_id, full_name, industry_name, department_name, net_pay, gross_pay, deduction FROM employee_salary 
+ORDER BY industry_name, department_name, gross_pay DESC, net_pay DESC, employee_id;
+
+
+-- Displays employees who have outstanding average deduction and average net pay larger than 90000 and total gross pay larger than 1000000
+CREATE OR REPLACE VIEW deduction_outstanding AS 
+SELECT employee_id, CONCAT(last_name, ", ", first_name) AS employee_name, organization_name, ROUND(AVG(gross_pay),2) AS average_gross_pay, ROUND(AVG(net_pay), 2) AS average_net_pay, ROUND(AVG(gross_pay - net_pay), 2) AS average_deduction 
+FROM employees JOIN emp_records USING(employee_id)
+JOIN org_emp USING(employee_id)
+JOIN organizations USING(organization_id)
+WHERE gross_pay - net_pay < 0
+GROUP BY employee_id, organization_id 
+HAVING AVG(net_pay) > 90000 AND SUM(gross_pay) > 100000;
+SELECT employee_id, employee_name, organization_name, average_gross_pay, average_net_pay, average_deduction FROM deduction_outstanding
+ORDER BY average_gross_pay DESC;
+
+
+
+-- Gives the list of industries in various locations with the max salaries 
+CREATE OR REPLACE VIEW state_salary AS 
+SELECT state, city, industry_name, ROUND(MAX(total_gross_pay),2) AS max_gross_pay
+FROM 
+(SELECT e.state, e.city, i.industry_name, SUM(gross_pay) AS total_gross_pay 
+FROM employees e JOIN emp_records er ON e.employee_id = er.employee_id
+JOIN org_emp oe ON e.employee_id = oe.employee_id
+JOIN departments d ON oe.department_id = d.department_id
+JOIN industries i ON d.industry_id = i.industry_id
+GROUP BY e.state, e.city, i.industry_id
+) y 
+GROUP BY state, city, industry_name;
+SELECT state, city, industry_name, max_gross_pay FROM state_salary 
+HAVING max_gross_pay > 80000
+ORDER BY state, industry_name, max_gross_pay DESC;
+
+
+
+-- Checks the list of companies that have and do not have employees' records yet 
+CREATE OR REPLACE VIEW company_record AS 
+SELECT CONCAT(e.first_name, ' ', e.last_name) AS employee_name, i.industry_name, o.organization_name, o.website
+FROM organizations o JOIN org_emp oe ON o.organization_id = oe.organization_id
+JOIN employees e ON oe.employee_id = e.employee_id
+JOIN industries i ON o.industry_id = i.industry_id
+UNION 
+SELECT "Needs to be added", i.industry_name, o.organization_name, o.website
+FROM organizations o LEFT JOIN org_emp oe ON o.organization_id = oe.organization_id
+LEFT JOIN employees e ON oe.employee_id = e.employee_id
+LEFT JOIN industries i ON o.industry_id = i.industry_id
+WHERE e.first_name IS NULL AND e.last_name IS NULL;
+SELECT employee_name, industry_name, organization_name, website FROM company_record
+ORDER BY employee_name;
+
+
+-- Displays list of organizations with total amount paid for the employees 
+CREATE OR REPLACE VIEW organization_total_paid AS 
+SELECT organization_name, MAX(x.total_paid) AS max_total_paid 
+FROM organizations o JOIN org_emp e USING(organization_id)
+JOIN 
+(SELECT organization_id, ROUND(SUM(net_pay),2) AS total_paid
+FROM organizations JOIN org_emp USING(organization_id) 
+JOIN emp_records USING(employee_id)
+GROUP BY organization_id) AS x ON o.organization_id = x.organization_id
+GROUP BY organization_name WITH ROLLUP;
+SELECT organization_name, max_total_paid FROM organization_total_paid 
+ORDER BY organization_name DESC;
+
+
+-- Displays the records of employees who live in Rockville area with deductions less than the sum of the deductions of all employees
+CREATE OR REPLACE VIEW rockville_employees AS
+SELECT first_name, last_name, department_name, gross_pay - net_pay AS deduction, phone, zip_code
+FROM employees JOIN org_emp USING(employee_id)
+JOIN emp_records USING(employee_id)
+JOIN departments USING(department_id) 
+WHERE zip_code = 20850
+AND gross_pay - net_pay < 
+(SELECT SUM(gross_pay - net_pay) FROM emp_records WHERE gross_pay - net_pay > 0);
+SELECT first_name, last_name, department_name, phone, zip_code, ROUND(deduction, 2) AS deduction FROM rockville_employees
+ORDER BY phone DESC;
