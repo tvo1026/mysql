@@ -1,0 +1,2434 @@
+{
+  "paper": {
+    "name": "A4",
+    "leftMargin": 0.5,
+    "rightMargin": 0.5,
+    "topMargin": 0.5,
+    "bottomMargin": 0.5,
+    "isPortriat": true
+  },
+  "modelVersion": 2.01,
+  "defaultSchema": "Default",
+  "server": {
+    "objectType": "Server_MYSQL",
+    "name": "Default",
+    "serverVersion": 50724,
+    "edition": "Default",
+    "lowerCaseTableNames": 0,
+    "schemas": [
+      {
+        "objectType": "Schema_MYSQL",
+        "name": "Default",
+        "tables": [],
+        "views": []
+      },
+      {
+        "objectType": "Schema_MYSQL",
+        "name": "team_brunch_db",
+        "tables": [
+          {
+            "objectType": "Table_MYSQL",
+            "name": "departments",
+            "comment": "",
+            "engine": "InnoDB",
+            "characterSet": "latin1",
+            "collation": "latin1_swedish_ci",
+            "autoIncrement": 0,
+            "tablespace": "",
+            "storage": "",
+            "insertMethod": "",
+            "connection": "",
+            "checksum": false,
+            "rowFormat": "DYNAMIC",
+            "avgRowLength": 0,
+            "maxRows": 0,
+            "minRows": 0,
+            "keyBlockSize": 0,
+            "packKeys": "",
+            "delayKeyWrite": false,
+            "dataDirectory": "",
+            "indexDirectory": "",
+            "statsAutoRecalc": "",
+            "statsPersistent": "",
+            "statsSamplePages": 0,
+            "union": "",
+            "pageCheckSum": false,
+            "transactional": false,
+            "compression": "",
+            "oldName": "departments",
+            "encryption": false,
+            "createOptions": "row_format=DYNAMIC",
+            "createTime": "2020-05-16 21:02:00",
+            "checkTime": "",
+            "dataFree": 0,
+            "dataLength": 16384,
+            "indexLength": 32768,
+            "maxDataLength": 0,
+            "rows": 8,
+            "updateTime": "2020-05-16 21:02:00",
+            "DDL": "CREATE TABLE `departments` (\n  `department_id` varchar(10) NOT NULL,\n  `industry_id` int(11) NOT NULL,\n  `department_name` varchar(50) NOT NULL,\n  PRIMARY KEY (`department_id`) USING BTREE,\n  UNIQUE KEY `department_name` (`department_name`) USING BTREE,\n  KEY `departnments_fk_industries` (`industry_id`) USING BTREE,\n  CONSTRAINT `departnments_fk_industries` FOREIGN KEY (`industry_id`) REFERENCES `industries` (`industry_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC",
+            "partitionBy": "",
+            "partitionByExpr": "",
+            "partitions": 0,
+            "partitionKeyAlgorithm": "",
+            "subPartitionBy": "",
+            "subPartitionByExpr": "",
+            "subPartitions": 0,
+            "subPartitionKeyAlgorithm": "",
+            "fields": [
+              {
+                "objectType": "TableField_MYSQL",
+                "name": "department_id",
+                "type": "varchar",
+                "length": 10,
+                "decimals": 0,
+                "isUnsigned": false,
+                "isZeroFill": false,
+                "setEnumValues": "",
+                "isBinary": false,
+                "charset": "latin1",
+                "collation": "latin1_swedish_ci",
+                "isNullable": false,
+                "defaultType": "Others",
+                "defaultValue": "",
+                "isOnUpdateCurrentTimestamp": false,
+                "isAutoInc": false,
+                "comment": "",
+                "columnFormat": "",
+                "storage": "",
+                "isVirtual": false,
+                "isGeneratedAlways": false,
+                "virtualExpr": "",
+                "virtualType": "",
+                "oldName": "department_id"
+              },
+              {
+                "objectType": "TableField_MYSQL",
+                "name": "industry_id",
+                "type": "int",
+                "length": 11,
+                "decimals": 0,
+                "isUnsigned": false,
+                "isZeroFill": false,
+                "setEnumValues": "",
+                "isBinary": false,
+                "charset": "",
+                "collation": "",
+                "isNullable": false,
+                "defaultType": "Others",
+                "defaultValue": "",
+                "isOnUpdateCurrentTimestamp": false,
+                "isAutoInc": false,
+                "comment": "",
+                "columnFormat": "",
+                "storage": "",
+                "isVirtual": false,
+                "isGeneratedAlways": false,
+                "virtualExpr": "",
+                "virtualType": "",
+                "oldName": "industry_id"
+              },
+              {
+                "objectType": "TableField_MYSQL",
+                "name": "department_name",
+                "type": "varchar",
+                "length": 50,
+                "decimals": 0,
+                "isUnsigned": false,
+                "isZeroFill": false,
+                "setEnumValues": "",
+                "isBinary": false,
+                "charset": "latin1",
+                "collation": "latin1_swedish_ci",
+                "isNullable": false,
+                "defaultType": "Others",
+                "defaultValue": "",
+                "isOnUpdateCurrentTimestamp": false,
+                "isAutoInc": false,
+                "comment": "",
+                "columnFormat": "",
+                "storage": "",
+                "isVirtual": false,
+                "isGeneratedAlways": false,
+                "virtualExpr": "",
+                "virtualType": "",
+                "oldName": "department_name"
+              }
+            ],
+            "indexes": [
+              {
+                "objectType": "Index_MYSQL",
+                "name": "department_name",
+                "type": "UNIQUE",
+                "method": "BTREE",
+                "comment": "",
+                "oldName": "department_name",
+                "online": false,
+                "keyBlockSize": 0,
+                "parser": "",
+                "algorithm": "",
+                "lock": "",
+                "collation": "A",
+                "cardinality": "8",
+                "packed": "",
+                "fields": [
+                  {
+                    "objectType": "IndexField_MYSQL",
+                    "name": "department_name",
+                    "keyLength": 0,
+                    "order": "",
+                    "oldName": "department_name"
+                  }
+                ]
+              },
+              {
+                "objectType": "Index_MYSQL",
+                "name": "departnments_fk_industries",
+                "type": "NORMAL",
+                "method": "BTREE",
+                "comment": "",
+                "oldName": "departnments_fk_industries",
+                "online": false,
+                "keyBlockSize": 0,
+                "parser": "",
+                "algorithm": "",
+                "lock": "",
+                "collation": "A",
+                "cardinality": "4",
+                "packed": "",
+                "fields": [
+                  {
+                    "objectType": "IndexField_MYSQL",
+                    "name": "industry_id",
+                    "keyLength": 0,
+                    "order": "",
+                    "oldName": "industry_id"
+                  }
+                ]
+              }
+            ],
+            "primaryKey": {
+              "objectType": "PrimaryKey_MYSQL",
+              "name": "",
+              "fields": [
+                {
+                  "objectType": "IndexField_MYSQL",
+                  "name": "department_id",
+                  "keyLength": 0,
+                  "order": "",
+                  "oldName": "department_id"
+                }
+              ],
+              "oldName": "",
+              "indexMethod": "BTREE",
+              "comment": ""
+            },
+            "foreignKeys": [
+              {
+                "objectType": "ForeignKey_MYSQL",
+                "name": "departnments_fk_industries",
+                "fields": [
+                  "industry_id"
+                ],
+                "referenceSchema": "team_brunch_db",
+                "referenceTable": "industries",
+                "referenceFields": [
+                  "industry_id"
+                ],
+                "onDelete": "RESTRICT",
+                "onUpdate": "RESTRICT",
+                "sourceCardinality": "ZeroOrManyRelationship",
+                "targetCardinality": "OneAndOnlyOneRelationship",
+                "oldName": "departnments_fk_industries"
+              }
+            ],
+            "triggers": [],
+            "tablePartitions": []
+          },
+          {
+            "objectType": "Table_MYSQL",
+            "name": "emp_records",
+            "comment": "",
+            "engine": "InnoDB",
+            "characterSet": "latin1",
+            "collation": "latin1_swedish_ci",
+            "autoIncrement": 0,
+            "tablespace": "",
+            "storage": "",
+            "insertMethod": "",
+            "connection": "",
+            "checksum": false,
+            "rowFormat": "DYNAMIC",
+            "avgRowLength": 0,
+            "maxRows": 0,
+            "minRows": 0,
+            "keyBlockSize": 0,
+            "packKeys": "",
+            "delayKeyWrite": false,
+            "dataDirectory": "",
+            "indexDirectory": "",
+            "statsAutoRecalc": "",
+            "statsPersistent": "",
+            "statsSamplePages": 0,
+            "union": "",
+            "pageCheckSum": false,
+            "transactional": false,
+            "compression": "",
+            "oldName": "emp_records",
+            "encryption": false,
+            "createOptions": "row_format=DYNAMIC",
+            "createTime": "2020-05-16 21:02:00",
+            "checkTime": "",
+            "dataFree": 0,
+            "dataLength": 16384,
+            "indexLength": 16384,
+            "maxDataLength": 0,
+            "rows": 109,
+            "updateTime": "2020-05-16 21:02:00",
+            "DDL": "CREATE TABLE `emp_records` (\n  `employee_id` int(11) NOT NULL,\n  `net_pay` double NOT NULL,\n  `gross_pay` double NOT NULL,\n  KEY `titles_fk_employees` (`employee_id`) USING BTREE,\n  CONSTRAINT `titles_fk_employees` FOREIGN KEY (`employee_id`) REFERENCES `employees` (`employee_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC",
+            "partitionBy": "",
+            "partitionByExpr": "",
+            "partitions": 0,
+            "partitionKeyAlgorithm": "",
+            "subPartitionBy": "",
+            "subPartitionByExpr": "",
+            "subPartitions": 0,
+            "subPartitionKeyAlgorithm": "",
+            "fields": [
+              {
+                "objectType": "TableField_MYSQL",
+                "name": "employee_id",
+                "type": "int",
+                "length": 11,
+                "decimals": 0,
+                "isUnsigned": false,
+                "isZeroFill": false,
+                "setEnumValues": "",
+                "isBinary": false,
+                "charset": "",
+                "collation": "",
+                "isNullable": false,
+                "defaultType": "Others",
+                "defaultValue": "",
+                "isOnUpdateCurrentTimestamp": false,
+                "isAutoInc": false,
+                "comment": "",
+                "columnFormat": "",
+                "storage": "",
+                "isVirtual": false,
+                "isGeneratedAlways": false,
+                "virtualExpr": "",
+                "virtualType": "",
+                "oldName": "employee_id"
+              },
+              {
+                "objectType": "TableField_MYSQL",
+                "name": "net_pay",
+                "type": "double",
+                "length": 0,
+                "decimals": 0,
+                "isUnsigned": false,
+                "isZeroFill": false,
+                "setEnumValues": "",
+                "isBinary": false,
+                "charset": "",
+                "collation": "",
+                "isNullable": false,
+                "defaultType": "Others",
+                "defaultValue": "",
+                "isOnUpdateCurrentTimestamp": false,
+                "isAutoInc": false,
+                "comment": "",
+                "columnFormat": "",
+                "storage": "",
+                "isVirtual": false,
+                "isGeneratedAlways": false,
+                "virtualExpr": "",
+                "virtualType": "",
+                "oldName": "net_pay"
+              },
+              {
+                "objectType": "TableField_MYSQL",
+                "name": "gross_pay",
+                "type": "double",
+                "length": 0,
+                "decimals": 0,
+                "isUnsigned": false,
+                "isZeroFill": false,
+                "setEnumValues": "",
+                "isBinary": false,
+                "charset": "",
+                "collation": "",
+                "isNullable": false,
+                "defaultType": "Others",
+                "defaultValue": "",
+                "isOnUpdateCurrentTimestamp": false,
+                "isAutoInc": false,
+                "comment": "",
+                "columnFormat": "",
+                "storage": "",
+                "isVirtual": false,
+                "isGeneratedAlways": false,
+                "virtualExpr": "",
+                "virtualType": "",
+                "oldName": "gross_pay"
+              }
+            ],
+            "indexes": [
+              {
+                "objectType": "Index_MYSQL",
+                "name": "titles_fk_employees",
+                "type": "NORMAL",
+                "method": "BTREE",
+                "comment": "",
+                "oldName": "titles_fk_employees",
+                "online": false,
+                "keyBlockSize": 0,
+                "parser": "",
+                "algorithm": "",
+                "lock": "",
+                "collation": "A",
+                "cardinality": "109",
+                "packed": "",
+                "fields": [
+                  {
+                    "objectType": "IndexField_MYSQL",
+                    "name": "employee_id",
+                    "keyLength": 0,
+                    "order": "",
+                    "oldName": "employee_id"
+                  }
+                ]
+              }
+            ],
+            "foreignKeys": [
+              {
+                "objectType": "ForeignKey_MYSQL",
+                "name": "titles_fk_employees",
+                "fields": [
+                  "employee_id"
+                ],
+                "referenceSchema": "team_brunch_db",
+                "referenceTable": "employees",
+                "referenceFields": [
+                  "employee_id"
+                ],
+                "onDelete": "RESTRICT",
+                "onUpdate": "RESTRICT",
+                "sourceCardinality": "ZeroOrManyRelationship",
+                "targetCardinality": "OneAndOnlyOneRelationship",
+                "oldName": "titles_fk_employees"
+              }
+            ],
+            "triggers": [],
+            "tablePartitions": []
+          },
+          {
+            "objectType": "Table_MYSQL",
+            "name": "employees",
+            "comment": "",
+            "engine": "InnoDB",
+            "characterSet": "latin1",
+            "collation": "latin1_swedish_ci",
+            "autoIncrement": 110,
+            "tablespace": "",
+            "storage": "",
+            "insertMethod": "",
+            "connection": "",
+            "checksum": false,
+            "rowFormat": "DYNAMIC",
+            "avgRowLength": 0,
+            "maxRows": 0,
+            "minRows": 0,
+            "keyBlockSize": 0,
+            "packKeys": "",
+            "delayKeyWrite": false,
+            "dataDirectory": "",
+            "indexDirectory": "",
+            "statsAutoRecalc": "",
+            "statsPersistent": "",
+            "statsSamplePages": 0,
+            "union": "",
+            "pageCheckSum": false,
+            "transactional": false,
+            "compression": "",
+            "oldName": "employees",
+            "encryption": false,
+            "createOptions": "row_format=DYNAMIC",
+            "createTime": "2020-05-16 21:02:00",
+            "checkTime": "",
+            "dataFree": 0,
+            "dataLength": 16384,
+            "indexLength": 0,
+            "maxDataLength": 0,
+            "rows": 109,
+            "updateTime": "2020-05-16 21:02:01",
+            "DDL": "CREATE TABLE `employees` (\n  `employee_id` int(11) NOT NULL AUTO_INCREMENT,\n  `first_name` varchar(50) NOT NULL,\n  `last_name` varchar(50) NOT NULL,\n  `address` varchar(100) NOT NULL,\n  `city` varchar(100) NOT NULL,\n  `state` char(2) NOT NULL,\n  `zip_code` int(11) NOT NULL,\n  `phone` varchar(50) DEFAULT NULL,\n  `email` varchar(150) NOT NULL,\n  PRIMARY KEY (`employee_id`) USING BTREE\n) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC",
+            "partitionBy": "",
+            "partitionByExpr": "",
+            "partitions": 0,
+            "partitionKeyAlgorithm": "",
+            "subPartitionBy": "",
+            "subPartitionByExpr": "",
+            "subPartitions": 0,
+            "subPartitionKeyAlgorithm": "",
+            "fields": [
+              {
+                "objectType": "TableField_MYSQL",
+                "name": "employee_id",
+                "type": "int",
+                "length": 11,
+                "decimals": 0,
+                "isUnsigned": false,
+                "isZeroFill": false,
+                "setEnumValues": "",
+                "isBinary": false,
+                "charset": "",
+                "collation": "",
+                "isNullable": false,
+                "defaultType": "Others",
+                "defaultValue": "",
+                "isOnUpdateCurrentTimestamp": false,
+                "isAutoInc": true,
+                "comment": "",
+                "columnFormat": "",
+                "storage": "",
+                "isVirtual": false,
+                "isGeneratedAlways": false,
+                "virtualExpr": "",
+                "virtualType": "",
+                "oldName": "employee_id"
+              },
+              {
+                "objectType": "TableField_MYSQL",
+                "name": "first_name",
+                "type": "varchar",
+                "length": 50,
+                "decimals": 0,
+                "isUnsigned": false,
+                "isZeroFill": false,
+                "setEnumValues": "",
+                "isBinary": false,
+                "charset": "latin1",
+                "collation": "latin1_swedish_ci",
+                "isNullable": false,
+                "defaultType": "Others",
+                "defaultValue": "",
+                "isOnUpdateCurrentTimestamp": false,
+                "isAutoInc": false,
+                "comment": "",
+                "columnFormat": "",
+                "storage": "",
+                "isVirtual": false,
+                "isGeneratedAlways": false,
+                "virtualExpr": "",
+                "virtualType": "",
+                "oldName": "first_name"
+              },
+              {
+                "objectType": "TableField_MYSQL",
+                "name": "last_name",
+                "type": "varchar",
+                "length": 50,
+                "decimals": 0,
+                "isUnsigned": false,
+                "isZeroFill": false,
+                "setEnumValues": "",
+                "isBinary": false,
+                "charset": "latin1",
+                "collation": "latin1_swedish_ci",
+                "isNullable": false,
+                "defaultType": "Others",
+                "defaultValue": "",
+                "isOnUpdateCurrentTimestamp": false,
+                "isAutoInc": false,
+                "comment": "",
+                "columnFormat": "",
+                "storage": "",
+                "isVirtual": false,
+                "isGeneratedAlways": false,
+                "virtualExpr": "",
+                "virtualType": "",
+                "oldName": "last_name"
+              },
+              {
+                "objectType": "TableField_MYSQL",
+                "name": "address",
+                "type": "varchar",
+                "length": 100,
+                "decimals": 0,
+                "isUnsigned": false,
+                "isZeroFill": false,
+                "setEnumValues": "",
+                "isBinary": false,
+                "charset": "latin1",
+                "collation": "latin1_swedish_ci",
+                "isNullable": false,
+                "defaultType": "Others",
+                "defaultValue": "",
+                "isOnUpdateCurrentTimestamp": false,
+                "isAutoInc": false,
+                "comment": "",
+                "columnFormat": "",
+                "storage": "",
+                "isVirtual": false,
+                "isGeneratedAlways": false,
+                "virtualExpr": "",
+                "virtualType": "",
+                "oldName": "address"
+              },
+              {
+                "objectType": "TableField_MYSQL",
+                "name": "city",
+                "type": "varchar",
+                "length": 100,
+                "decimals": 0,
+                "isUnsigned": false,
+                "isZeroFill": false,
+                "setEnumValues": "",
+                "isBinary": false,
+                "charset": "latin1",
+                "collation": "latin1_swedish_ci",
+                "isNullable": false,
+                "defaultType": "Others",
+                "defaultValue": "",
+                "isOnUpdateCurrentTimestamp": false,
+                "isAutoInc": false,
+                "comment": "",
+                "columnFormat": "",
+                "storage": "",
+                "isVirtual": false,
+                "isGeneratedAlways": false,
+                "virtualExpr": "",
+                "virtualType": "",
+                "oldName": "city"
+              },
+              {
+                "objectType": "TableField_MYSQL",
+                "name": "state",
+                "type": "char",
+                "length": 2,
+                "decimals": 0,
+                "isUnsigned": false,
+                "isZeroFill": false,
+                "setEnumValues": "",
+                "isBinary": false,
+                "charset": "latin1",
+                "collation": "latin1_swedish_ci",
+                "isNullable": false,
+                "defaultType": "Others",
+                "defaultValue": "",
+                "isOnUpdateCurrentTimestamp": false,
+                "isAutoInc": false,
+                "comment": "",
+                "columnFormat": "",
+                "storage": "",
+                "isVirtual": false,
+                "isGeneratedAlways": false,
+                "virtualExpr": "",
+                "virtualType": "",
+                "oldName": "state"
+              },
+              {
+                "objectType": "TableField_MYSQL",
+                "name": "zip_code",
+                "type": "int",
+                "length": 11,
+                "decimals": 0,
+                "isUnsigned": false,
+                "isZeroFill": false,
+                "setEnumValues": "",
+                "isBinary": false,
+                "charset": "",
+                "collation": "",
+                "isNullable": false,
+                "defaultType": "Others",
+                "defaultValue": "",
+                "isOnUpdateCurrentTimestamp": false,
+                "isAutoInc": false,
+                "comment": "",
+                "columnFormat": "",
+                "storage": "",
+                "isVirtual": false,
+                "isGeneratedAlways": false,
+                "virtualExpr": "",
+                "virtualType": "",
+                "oldName": "zip_code"
+              },
+              {
+                "objectType": "TableField_MYSQL",
+                "name": "phone",
+                "type": "varchar",
+                "length": 50,
+                "decimals": 0,
+                "isUnsigned": false,
+                "isZeroFill": false,
+                "setEnumValues": "",
+                "isBinary": false,
+                "charset": "latin1",
+                "collation": "latin1_swedish_ci",
+                "isNullable": true,
+                "defaultType": "Null",
+                "defaultValue": "",
+                "isOnUpdateCurrentTimestamp": false,
+                "isAutoInc": false,
+                "comment": "",
+                "columnFormat": "",
+                "storage": "",
+                "isVirtual": false,
+                "isGeneratedAlways": false,
+                "virtualExpr": "",
+                "virtualType": "",
+                "oldName": "phone"
+              },
+              {
+                "objectType": "TableField_MYSQL",
+                "name": "email",
+                "type": "varchar",
+                "length": 150,
+                "decimals": 0,
+                "isUnsigned": false,
+                "isZeroFill": false,
+                "setEnumValues": "",
+                "isBinary": false,
+                "charset": "latin1",
+                "collation": "latin1_swedish_ci",
+                "isNullable": false,
+                "defaultType": "Others",
+                "defaultValue": "",
+                "isOnUpdateCurrentTimestamp": false,
+                "isAutoInc": false,
+                "comment": "",
+                "columnFormat": "",
+                "storage": "",
+                "isVirtual": false,
+                "isGeneratedAlways": false,
+                "virtualExpr": "",
+                "virtualType": "",
+                "oldName": "email"
+              }
+            ],
+            "indexes": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_MYSQL",
+              "name": "",
+              "fields": [
+                {
+                  "objectType": "IndexField_MYSQL",
+                  "name": "employee_id",
+                  "keyLength": 0,
+                  "order": "",
+                  "oldName": "employee_id"
+                }
+              ],
+              "oldName": "",
+              "indexMethod": "BTREE",
+              "comment": ""
+            },
+            "foreignKeys": [],
+            "triggers": [],
+            "tablePartitions": []
+          },
+          {
+            "objectType": "Table_MYSQL",
+            "name": "industries",
+            "comment": "",
+            "engine": "InnoDB",
+            "characterSet": "latin1",
+            "collation": "latin1_swedish_ci",
+            "autoIncrement": 5,
+            "tablespace": "",
+            "storage": "",
+            "insertMethod": "",
+            "connection": "",
+            "checksum": false,
+            "rowFormat": "DYNAMIC",
+            "avgRowLength": 0,
+            "maxRows": 0,
+            "minRows": 0,
+            "keyBlockSize": 0,
+            "packKeys": "",
+            "delayKeyWrite": false,
+            "dataDirectory": "",
+            "indexDirectory": "",
+            "statsAutoRecalc": "",
+            "statsPersistent": "",
+            "statsSamplePages": 0,
+            "union": "",
+            "pageCheckSum": false,
+            "transactional": false,
+            "compression": "",
+            "oldName": "industries",
+            "encryption": false,
+            "createOptions": "row_format=DYNAMIC",
+            "createTime": "2020-05-16 21:02:01",
+            "checkTime": "",
+            "dataFree": 0,
+            "dataLength": 16384,
+            "indexLength": 0,
+            "maxDataLength": 0,
+            "rows": 4,
+            "updateTime": "2020-05-16 21:02:01",
+            "DDL": "CREATE TABLE `industries` (\n  `industry_id` int(11) NOT NULL AUTO_INCREMENT,\n  `industry_name` varchar(50) NOT NULL,\n  PRIMARY KEY (`industry_id`) USING BTREE\n) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC",
+            "partitionBy": "",
+            "partitionByExpr": "",
+            "partitions": 0,
+            "partitionKeyAlgorithm": "",
+            "subPartitionBy": "",
+            "subPartitionByExpr": "",
+            "subPartitions": 0,
+            "subPartitionKeyAlgorithm": "",
+            "fields": [
+              {
+                "objectType": "TableField_MYSQL",
+                "name": "industry_id",
+                "type": "int",
+                "length": 11,
+                "decimals": 0,
+                "isUnsigned": false,
+                "isZeroFill": false,
+                "setEnumValues": "",
+                "isBinary": false,
+                "charset": "",
+                "collation": "",
+                "isNullable": false,
+                "defaultType": "Others",
+                "defaultValue": "",
+                "isOnUpdateCurrentTimestamp": false,
+                "isAutoInc": true,
+                "comment": "",
+                "columnFormat": "",
+                "storage": "",
+                "isVirtual": false,
+                "isGeneratedAlways": false,
+                "virtualExpr": "",
+                "virtualType": "",
+                "oldName": "industry_id"
+              },
+              {
+                "objectType": "TableField_MYSQL",
+                "name": "industry_name",
+                "type": "varchar",
+                "length": 50,
+                "decimals": 0,
+                "isUnsigned": false,
+                "isZeroFill": false,
+                "setEnumValues": "",
+                "isBinary": false,
+                "charset": "latin1",
+                "collation": "latin1_swedish_ci",
+                "isNullable": false,
+                "defaultType": "Others",
+                "defaultValue": "",
+                "isOnUpdateCurrentTimestamp": false,
+                "isAutoInc": false,
+                "comment": "",
+                "columnFormat": "",
+                "storage": "",
+                "isVirtual": false,
+                "isGeneratedAlways": false,
+                "virtualExpr": "",
+                "virtualType": "",
+                "oldName": "industry_name"
+              }
+            ],
+            "indexes": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_MYSQL",
+              "name": "",
+              "fields": [
+                {
+                  "objectType": "IndexField_MYSQL",
+                  "name": "industry_id",
+                  "keyLength": 0,
+                  "order": "",
+                  "oldName": "industry_id"
+                }
+              ],
+              "oldName": "",
+              "indexMethod": "BTREE",
+              "comment": ""
+            },
+            "foreignKeys": [],
+            "triggers": [],
+            "tablePartitions": []
+          },
+          {
+            "objectType": "Table_MYSQL",
+            "name": "org_emp",
+            "comment": "",
+            "engine": "InnoDB",
+            "characterSet": "latin1",
+            "collation": "latin1_swedish_ci",
+            "autoIncrement": 0,
+            "tablespace": "",
+            "storage": "",
+            "insertMethod": "",
+            "connection": "",
+            "checksum": false,
+            "rowFormat": "DYNAMIC",
+            "avgRowLength": 0,
+            "maxRows": 0,
+            "minRows": 0,
+            "keyBlockSize": 0,
+            "packKeys": "",
+            "delayKeyWrite": false,
+            "dataDirectory": "",
+            "indexDirectory": "",
+            "statsAutoRecalc": "",
+            "statsPersistent": "",
+            "statsSamplePages": 0,
+            "union": "",
+            "pageCheckSum": false,
+            "transactional": false,
+            "compression": "",
+            "oldName": "org_emp",
+            "encryption": false,
+            "createOptions": "row_format=DYNAMIC",
+            "createTime": "2020-05-16 21:02:01",
+            "checkTime": "",
+            "dataFree": 0,
+            "dataLength": 16384,
+            "indexLength": 49152,
+            "maxDataLength": 0,
+            "rows": 109,
+            "updateTime": "2020-05-16 21:02:01",
+            "DDL": "CREATE TABLE `org_emp` (\n  `employee_id` int(11) NOT NULL,\n  `organization_id` int(11) NOT NULL,\n  `department_id` varchar(10) NOT NULL,\n  KEY `org_emp_fk_employees` (`employee_id`) USING BTREE,\n  KEY `org_emp_fk_organizations` (`organization_id`) USING BTREE,\n  KEY `org_emp_fk_departments` (`department_id`) USING BTREE,\n  CONSTRAINT `org_emp_fk_departments` FOREIGN KEY (`department_id`) REFERENCES `departments` (`department_id`),\n  CONSTRAINT `org_emp_fk_employees` FOREIGN KEY (`employee_id`) REFERENCES `employees` (`employee_id`),\n  CONSTRAINT `org_emp_fk_organizations` FOREIGN KEY (`organization_id`) REFERENCES `organizations` (`organization_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC",
+            "partitionBy": "",
+            "partitionByExpr": "",
+            "partitions": 0,
+            "partitionKeyAlgorithm": "",
+            "subPartitionBy": "",
+            "subPartitionByExpr": "",
+            "subPartitions": 0,
+            "subPartitionKeyAlgorithm": "",
+            "fields": [
+              {
+                "objectType": "TableField_MYSQL",
+                "name": "employee_id",
+                "type": "int",
+                "length": 11,
+                "decimals": 0,
+                "isUnsigned": false,
+                "isZeroFill": false,
+                "setEnumValues": "",
+                "isBinary": false,
+                "charset": "",
+                "collation": "",
+                "isNullable": false,
+                "defaultType": "Others",
+                "defaultValue": "",
+                "isOnUpdateCurrentTimestamp": false,
+                "isAutoInc": false,
+                "comment": "",
+                "columnFormat": "",
+                "storage": "",
+                "isVirtual": false,
+                "isGeneratedAlways": false,
+                "virtualExpr": "",
+                "virtualType": "",
+                "oldName": "employee_id"
+              },
+              {
+                "objectType": "TableField_MYSQL",
+                "name": "organization_id",
+                "type": "int",
+                "length": 11,
+                "decimals": 0,
+                "isUnsigned": false,
+                "isZeroFill": false,
+                "setEnumValues": "",
+                "isBinary": false,
+                "charset": "",
+                "collation": "",
+                "isNullable": false,
+                "defaultType": "Others",
+                "defaultValue": "",
+                "isOnUpdateCurrentTimestamp": false,
+                "isAutoInc": false,
+                "comment": "",
+                "columnFormat": "",
+                "storage": "",
+                "isVirtual": false,
+                "isGeneratedAlways": false,
+                "virtualExpr": "",
+                "virtualType": "",
+                "oldName": "organization_id"
+              },
+              {
+                "objectType": "TableField_MYSQL",
+                "name": "department_id",
+                "type": "varchar",
+                "length": 10,
+                "decimals": 0,
+                "isUnsigned": false,
+                "isZeroFill": false,
+                "setEnumValues": "",
+                "isBinary": false,
+                "charset": "latin1",
+                "collation": "latin1_swedish_ci",
+                "isNullable": false,
+                "defaultType": "Others",
+                "defaultValue": "",
+                "isOnUpdateCurrentTimestamp": false,
+                "isAutoInc": false,
+                "comment": "",
+                "columnFormat": "",
+                "storage": "",
+                "isVirtual": false,
+                "isGeneratedAlways": false,
+                "virtualExpr": "",
+                "virtualType": "",
+                "oldName": "department_id"
+              }
+            ],
+            "indexes": [
+              {
+                "objectType": "Index_MYSQL",
+                "name": "org_emp_fk_employees",
+                "type": "NORMAL",
+                "method": "BTREE",
+                "comment": "",
+                "oldName": "org_emp_fk_employees",
+                "online": false,
+                "keyBlockSize": 0,
+                "parser": "",
+                "algorithm": "",
+                "lock": "",
+                "collation": "A",
+                "cardinality": "109",
+                "packed": "",
+                "fields": [
+                  {
+                    "objectType": "IndexField_MYSQL",
+                    "name": "employee_id",
+                    "keyLength": 0,
+                    "order": "",
+                    "oldName": "employee_id"
+                  }
+                ]
+              },
+              {
+                "objectType": "Index_MYSQL",
+                "name": "org_emp_fk_organizations",
+                "type": "NORMAL",
+                "method": "BTREE",
+                "comment": "",
+                "oldName": "org_emp_fk_organizations",
+                "online": false,
+                "keyBlockSize": 0,
+                "parser": "",
+                "algorithm": "",
+                "lock": "",
+                "collation": "A",
+                "cardinality": "109",
+                "packed": "",
+                "fields": [
+                  {
+                    "objectType": "IndexField_MYSQL",
+                    "name": "organization_id",
+                    "keyLength": 0,
+                    "order": "",
+                    "oldName": "organization_id"
+                  }
+                ]
+              },
+              {
+                "objectType": "Index_MYSQL",
+                "name": "org_emp_fk_departments",
+                "type": "NORMAL",
+                "method": "BTREE",
+                "comment": "",
+                "oldName": "org_emp_fk_departments",
+                "online": false,
+                "keyBlockSize": 0,
+                "parser": "",
+                "algorithm": "",
+                "lock": "",
+                "collation": "A",
+                "cardinality": "8",
+                "packed": "",
+                "fields": [
+                  {
+                    "objectType": "IndexField_MYSQL",
+                    "name": "department_id",
+                    "keyLength": 0,
+                    "order": "",
+                    "oldName": "department_id"
+                  }
+                ]
+              }
+            ],
+            "foreignKeys": [
+              {
+                "objectType": "ForeignKey_MYSQL",
+                "name": "org_emp_fk_departments",
+                "fields": [
+                  "department_id"
+                ],
+                "referenceSchema": "team_brunch_db",
+                "referenceTable": "departments",
+                "referenceFields": [
+                  "department_id"
+                ],
+                "onDelete": "RESTRICT",
+                "onUpdate": "RESTRICT",
+                "sourceCardinality": "ZeroOrManyRelationship",
+                "targetCardinality": "OneAndOnlyOneRelationship",
+                "oldName": "org_emp_fk_departments"
+              },
+              {
+                "objectType": "ForeignKey_MYSQL",
+                "name": "org_emp_fk_employees",
+                "fields": [
+                  "employee_id"
+                ],
+                "referenceSchema": "team_brunch_db",
+                "referenceTable": "employees",
+                "referenceFields": [
+                  "employee_id"
+                ],
+                "onDelete": "RESTRICT",
+                "onUpdate": "RESTRICT",
+                "sourceCardinality": "ZeroOrManyRelationship",
+                "targetCardinality": "OneAndOnlyOneRelationship",
+                "oldName": "org_emp_fk_employees"
+              },
+              {
+                "objectType": "ForeignKey_MYSQL",
+                "name": "org_emp_fk_organizations",
+                "fields": [
+                  "organization_id"
+                ],
+                "referenceSchema": "team_brunch_db",
+                "referenceTable": "organizations",
+                "referenceFields": [
+                  "organization_id"
+                ],
+                "onDelete": "RESTRICT",
+                "onUpdate": "RESTRICT",
+                "sourceCardinality": "ZeroOrManyRelationship",
+                "targetCardinality": "OneAndOnlyOneRelationship",
+                "oldName": "org_emp_fk_organizations"
+              }
+            ],
+            "triggers": [],
+            "tablePartitions": []
+          },
+          {
+            "objectType": "Table_MYSQL",
+            "name": "organizations",
+            "comment": "",
+            "engine": "InnoDB",
+            "characterSet": "latin1",
+            "collation": "latin1_swedish_ci",
+            "autoIncrement": 503,
+            "tablespace": "",
+            "storage": "",
+            "insertMethod": "",
+            "connection": "",
+            "checksum": false,
+            "rowFormat": "DYNAMIC",
+            "avgRowLength": 0,
+            "maxRows": 0,
+            "minRows": 0,
+            "keyBlockSize": 0,
+            "packKeys": "",
+            "delayKeyWrite": false,
+            "dataDirectory": "",
+            "indexDirectory": "",
+            "statsAutoRecalc": "",
+            "statsPersistent": "",
+            "statsSamplePages": 0,
+            "union": "",
+            "pageCheckSum": false,
+            "transactional": false,
+            "compression": "",
+            "oldName": "organizations",
+            "encryption": false,
+            "createOptions": "row_format=DYNAMIC",
+            "createTime": "2020-05-16 21:02:01",
+            "checkTime": "",
+            "dataFree": 0,
+            "dataLength": 81920,
+            "indexLength": 81920,
+            "maxDataLength": 0,
+            "rows": 502,
+            "updateTime": "2020-05-16 21:02:01",
+            "DDL": "CREATE TABLE `organizations` (\n  `organization_id` int(11) NOT NULL AUTO_INCREMENT,\n  `industry_id` int(11) NOT NULL,\n  `organization_name` varchar(100) NOT NULL,\n  `website` varchar(200) NOT NULL,\n  PRIMARY KEY (`organization_id`) USING BTREE,\n  UNIQUE KEY `organization_name` (`organization_name`) USING BTREE,\n  UNIQUE KEY `website` (`website`) USING BTREE,\n  KEY `organizations_fk_industries` (`industry_id`) USING BTREE,\n  CONSTRAINT `organizations_fk_industries` FOREIGN KEY (`industry_id`) REFERENCES `industries` (`industry_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=503 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC",
+            "partitionBy": "",
+            "partitionByExpr": "",
+            "partitions": 0,
+            "partitionKeyAlgorithm": "",
+            "subPartitionBy": "",
+            "subPartitionByExpr": "",
+            "subPartitions": 0,
+            "subPartitionKeyAlgorithm": "",
+            "fields": [
+              {
+                "objectType": "TableField_MYSQL",
+                "name": "organization_id",
+                "type": "int",
+                "length": 11,
+                "decimals": 0,
+                "isUnsigned": false,
+                "isZeroFill": false,
+                "setEnumValues": "",
+                "isBinary": false,
+                "charset": "",
+                "collation": "",
+                "isNullable": false,
+                "defaultType": "Others",
+                "defaultValue": "",
+                "isOnUpdateCurrentTimestamp": false,
+                "isAutoInc": true,
+                "comment": "",
+                "columnFormat": "",
+                "storage": "",
+                "isVirtual": false,
+                "isGeneratedAlways": false,
+                "virtualExpr": "",
+                "virtualType": "",
+                "oldName": "organization_id"
+              },
+              {
+                "objectType": "TableField_MYSQL",
+                "name": "industry_id",
+                "type": "int",
+                "length": 11,
+                "decimals": 0,
+                "isUnsigned": false,
+                "isZeroFill": false,
+                "setEnumValues": "",
+                "isBinary": false,
+                "charset": "",
+                "collation": "",
+                "isNullable": false,
+                "defaultType": "Others",
+                "defaultValue": "",
+                "isOnUpdateCurrentTimestamp": false,
+                "isAutoInc": false,
+                "comment": "",
+                "columnFormat": "",
+                "storage": "",
+                "isVirtual": false,
+                "isGeneratedAlways": false,
+                "virtualExpr": "",
+                "virtualType": "",
+                "oldName": "industry_id"
+              },
+              {
+                "objectType": "TableField_MYSQL",
+                "name": "organization_name",
+                "type": "varchar",
+                "length": 100,
+                "decimals": 0,
+                "isUnsigned": false,
+                "isZeroFill": false,
+                "setEnumValues": "",
+                "isBinary": false,
+                "charset": "latin1",
+                "collation": "latin1_swedish_ci",
+                "isNullable": false,
+                "defaultType": "Others",
+                "defaultValue": "",
+                "isOnUpdateCurrentTimestamp": false,
+                "isAutoInc": false,
+                "comment": "",
+                "columnFormat": "",
+                "storage": "",
+                "isVirtual": false,
+                "isGeneratedAlways": false,
+                "virtualExpr": "",
+                "virtualType": "",
+                "oldName": "organization_name"
+              },
+              {
+                "objectType": "TableField_MYSQL",
+                "name": "website",
+                "type": "varchar",
+                "length": 200,
+                "decimals": 0,
+                "isUnsigned": false,
+                "isZeroFill": false,
+                "setEnumValues": "",
+                "isBinary": false,
+                "charset": "latin1",
+                "collation": "latin1_swedish_ci",
+                "isNullable": false,
+                "defaultType": "Others",
+                "defaultValue": "",
+                "isOnUpdateCurrentTimestamp": false,
+                "isAutoInc": false,
+                "comment": "",
+                "columnFormat": "",
+                "storage": "",
+                "isVirtual": false,
+                "isGeneratedAlways": false,
+                "virtualExpr": "",
+                "virtualType": "",
+                "oldName": "website"
+              }
+            ],
+            "indexes": [
+              {
+                "objectType": "Index_MYSQL",
+                "name": "organization_name",
+                "type": "UNIQUE",
+                "method": "BTREE",
+                "comment": "",
+                "oldName": "organization_name",
+                "online": false,
+                "keyBlockSize": 0,
+                "parser": "",
+                "algorithm": "",
+                "lock": "",
+                "collation": "A",
+                "cardinality": "502",
+                "packed": "",
+                "fields": [
+                  {
+                    "objectType": "IndexField_MYSQL",
+                    "name": "organization_name",
+                    "keyLength": 0,
+                    "order": "",
+                    "oldName": "organization_name"
+                  }
+                ]
+              },
+              {
+                "objectType": "Index_MYSQL",
+                "name": "website",
+                "type": "UNIQUE",
+                "method": "BTREE",
+                "comment": "",
+                "oldName": "website",
+                "online": false,
+                "keyBlockSize": 0,
+                "parser": "",
+                "algorithm": "",
+                "lock": "",
+                "collation": "A",
+                "cardinality": "502",
+                "packed": "",
+                "fields": [
+                  {
+                    "objectType": "IndexField_MYSQL",
+                    "name": "website",
+                    "keyLength": 0,
+                    "order": "",
+                    "oldName": "website"
+                  }
+                ]
+              },
+              {
+                "objectType": "Index_MYSQL",
+                "name": "organizations_fk_industries",
+                "type": "NORMAL",
+                "method": "BTREE",
+                "comment": "",
+                "oldName": "organizations_fk_industries",
+                "online": false,
+                "keyBlockSize": 0,
+                "parser": "",
+                "algorithm": "",
+                "lock": "",
+                "collation": "A",
+                "cardinality": "4",
+                "packed": "",
+                "fields": [
+                  {
+                    "objectType": "IndexField_MYSQL",
+                    "name": "industry_id",
+                    "keyLength": 0,
+                    "order": "",
+                    "oldName": "industry_id"
+                  }
+                ]
+              }
+            ],
+            "primaryKey": {
+              "objectType": "PrimaryKey_MYSQL",
+              "name": "",
+              "fields": [
+                {
+                  "objectType": "IndexField_MYSQL",
+                  "name": "organization_id",
+                  "keyLength": 0,
+                  "order": "",
+                  "oldName": "organization_id"
+                }
+              ],
+              "oldName": "",
+              "indexMethod": "BTREE",
+              "comment": ""
+            },
+            "foreignKeys": [
+              {
+                "objectType": "ForeignKey_MYSQL",
+                "name": "organizations_fk_industries",
+                "fields": [
+                  "industry_id"
+                ],
+                "referenceSchema": "team_brunch_db",
+                "referenceTable": "industries",
+                "referenceFields": [
+                  "industry_id"
+                ],
+                "onDelete": "RESTRICT",
+                "onUpdate": "RESTRICT",
+                "sourceCardinality": "ZeroOrManyRelationship",
+                "targetCardinality": "OneAndOnlyOneRelationship",
+                "oldName": "organizations_fk_industries"
+              }
+            ],
+            "triggers": [],
+            "tablePartitions": []
+          }
+        ],
+        "views": [
+          {
+            "objectType": "View_MYSQL",
+            "name": "company_record",
+            "selectStatement": "SELECT CONCAT(e.first_name, ' ', e.last_name) AS employee_name, i.industry_name, o.organization_name, o.website\r\nFROM organizations o JOIN org_emp oe ON o.organization_id = oe.organization_id\r\nJOIN employees e ON oe.employee_id = e.employee_id\r\nJOIN industries i ON o.industry_id = i.industry_id\r\nUNION \r\nSELECT \"Needs to be added\", i.industry_name, o.organization_name, o.website\r\nFROM organizations o LEFT JOIN org_emp oe ON o.organization_id = oe.organization_id\r\nLEFT JOIN employees e ON oe.employee_id = e.employee_id\r\nLEFT JOIN industries i ON o.industry_id = i.industry_id\r\nWHERE e.first_name IS NULL AND e.last_name IS NULL ",
+            "viewAlgorithm": "UNDEFINED",
+            "sqlSecurity": "DEFINER",
+            "checkOption": "",
+            "definer": "`root`@`localhost`",
+            "oldName": "company_record",
+            "isUpdatable": false
+          },
+          {
+            "objectType": "View_MYSQL",
+            "name": "deduction_outstanding",
+            "selectStatement": "SELECT employee_id, CONCAT(last_name, \", \", first_name) AS employee_name, organization_name, ROUND(AVG(gross_pay),2) AS average_gross_pay, ROUND(AVG(net_pay), 2) AS average_net_pay, ROUND(AVG(gross_pay - net_pay), 2) AS average_deduction \r\nFROM employees JOIN emp_records USING(employee_id)\r\nJOIN org_emp USING(employee_id)\r\nJOIN organizations USING(organization_id)\r\nWHERE gross_pay - net_pay < 0\r\nGROUP BY employee_id, organization_id \r\nHAVING AVG(net_pay) > 90000 AND SUM(gross_pay) > 100000 ",
+            "viewAlgorithm": "UNDEFINED",
+            "sqlSecurity": "DEFINER",
+            "checkOption": "",
+            "definer": "`root`@`localhost`",
+            "oldName": "deduction_outstanding",
+            "isUpdatable": false
+          },
+          {
+            "objectType": "View_MYSQL",
+            "name": "employee_salary",
+            "selectStatement": "SELECT oe.employee_id, CONCAT(e.first_name, ', ', e.last_name) AS full_name, i.industry_name, d.department_name, CAST(er.net_pay AS SIGNED) AS net_pay, CONVERT(er.gross_pay, SIGNED) AS gross_pay, ROUND(SUM(er.gross_pay - er.net_pay)) AS deduction\r\nFROM employees e JOIN org_emp oe ON e.employee_id = oe.employee_id \r\nJOIN emp_records er ON e.employee_id = er.employee_id \r\nJOIN departments d ON oe.department_id = d.department_id \r\nJOIN industries i ON d.industry_id = i.industry_id \r\nGROUP BY oe.employee_id, i.industry_name, d.department_name, net_pay, gross_pay ",
+            "viewAlgorithm": "UNDEFINED",
+            "sqlSecurity": "DEFINER",
+            "checkOption": "",
+            "definer": "`root`@`localhost`",
+            "oldName": "employee_salary",
+            "isUpdatable": false
+          },
+          {
+            "objectType": "View_MYSQL",
+            "name": "organization_total_paid",
+            "selectStatement": "SELECT organization_name, MAX(x.total_paid) AS max_total_paid \r\nFROM organizations o JOIN org_emp e USING(organization_id)\r\nJOIN \r\n(SELECT organization_id, ROUND(SUM(net_pay),2) AS total_paid\r\nFROM organizations JOIN org_emp USING(organization_id) \r\nJOIN emp_records USING(employee_id)\r\nGROUP BY organization_id) AS x ON o.organization_id = x.organization_id\r\nGROUP BY organization_name WITH ROLLUP ",
+            "viewAlgorithm": "UNDEFINED",
+            "sqlSecurity": "DEFINER",
+            "checkOption": "",
+            "definer": "`root`@`localhost`",
+            "oldName": "organization_total_paid",
+            "isUpdatable": false
+          },
+          {
+            "objectType": "View_MYSQL",
+            "name": "rockville_employees",
+            "selectStatement": "SELECT first_name, last_name, department_name, gross_pay - net_pay AS deduction, phone, zip_code\r\nFROM employees JOIN org_emp USING(employee_id)\r\nJOIN emp_records USING(employee_id)\r\nJOIN departments USING(department_id) \r\nWHERE zip_code = 20850\r\nAND gross_pay - net_pay < \r\n(SELECT SUM(gross_pay - net_pay) FROM emp_records WHERE gross_pay - net_pay > 0) ",
+            "viewAlgorithm": "UNDEFINED",
+            "sqlSecurity": "DEFINER",
+            "checkOption": "",
+            "definer": "`root`@`localhost`",
+            "oldName": "rockville_employees",
+            "isUpdatable": true
+          },
+          {
+            "objectType": "View_MYSQL",
+            "name": "state_salary",
+            "selectStatement": "SELECT state, city, industry_name, ROUND(MAX(total_gross_pay),2) AS max_gross_pay\r\nFROM \r\n(SELECT e.state, e.city, i.industry_name, SUM(gross_pay) AS total_gross_pay \r\nFROM employees e JOIN emp_records er ON e.employee_id = er.employee_id\r\nJOIN org_emp oe ON e.employee_id = oe.employee_id\r\nJOIN departments d ON oe.department_id = d.department_id\r\nJOIN industries i ON d.industry_id = i.industry_id\r\nGROUP BY e.state, e.city, i.industry_id\r\n) y \r\nGROUP BY state, city, industry_name ",
+            "viewAlgorithm": "UNDEFINED",
+            "sqlSecurity": "DEFINER",
+            "checkOption": "",
+            "definer": "`root`@`localhost`",
+            "oldName": "state_salary",
+            "isUpdatable": false
+          }
+        ]
+      }
+    ]
+  },
+  "diagrams": [
+    {
+      "name": "Diagram 1",
+      "paperWidth": 2,
+      "paperHeight": 1,
+      "tableFont": "Arial Unicode MS",
+      "tableFontSize": 14,
+      "isBalckWhite": false,
+      "showDBSchemaName": false,
+      "showViewRelations": true,
+      "notation": "default",
+      "showFieldComment": false,
+      "showTableComment": false,
+      "shapes": [
+        {
+          "type": "table",
+          "schemaName": "team_brunch_db",
+          "tableName": "departments",
+          "x": 140,
+          "y": 710,
+          "width": 217,
+          "height": 110,
+          "isBold": false,
+          "titleColor": {
+            "r": 55,
+            "g": 131,
+            "b": 192,
+            "a": 1
+          }
+        },
+        {
+          "type": "table",
+          "schemaName": "team_brunch_db",
+          "tableName": "emp_records",
+          "x": 570,
+          "y": 900,
+          "width": 175,
+          "height": 110,
+          "isBold": false,
+          "titleColor": {
+            "r": 55,
+            "g": 131,
+            "b": 192,
+            "a": 1
+          }
+        },
+        {
+          "type": "table",
+          "schemaName": "team_brunch_db",
+          "tableName": "employees",
+          "x": 820,
+          "y": 760,
+          "width": 170,
+          "height": 230,
+          "isBold": false,
+          "titleColor": {
+            "r": 55,
+            "g": 131,
+            "b": 192,
+            "a": 1
+          }
+        },
+        {
+          "type": "table",
+          "schemaName": "team_brunch_db",
+          "tableName": "industries",
+          "x": 1210,
+          "y": 1250,
+          "width": 194,
+          "height": 90,
+          "isBold": false,
+          "titleColor": {
+            "r": 55,
+            "g": 131,
+            "b": 192,
+            "a": 1
+          }
+        },
+        {
+          "type": "table",
+          "schemaName": "team_brunch_db",
+          "tableName": "org_emp",
+          "x": 300,
+          "y": 230,
+          "width": 196,
+          "height": 110,
+          "isBold": false,
+          "titleColor": {
+            "r": 55,
+            "g": 131,
+            "b": 192,
+            "a": 1
+          }
+        },
+        {
+          "type": "table",
+          "schemaName": "team_brunch_db",
+          "tableName": "organizations",
+          "x": 1390,
+          "y": 260,
+          "width": 229,
+          "height": 130,
+          "isBold": false,
+          "titleColor": {
+            "r": 55,
+            "g": 131,
+            "b": 192,
+            "a": 1
+          }
+        },
+        {
+          "type": "view",
+          "schemaName": "team_brunch_db",
+          "viewName": "company_record",
+          "x": 1180,
+          "y": 810,
+          "width": 277,
+          "height": 128,
+          "isBold": false,
+          "titleColor": {
+            "r": 100,
+            "g": 181,
+            "b": 246,
+            "a": 1
+          }
+        },
+        {
+          "type": "view",
+          "schemaName": "team_brunch_db",
+          "viewName": "deduction_outstanding",
+          "x": 760,
+          "y": 550,
+          "width": 308,
+          "height": 168,
+          "isBold": false,
+          "titleColor": {
+            "r": 100,
+            "g": 181,
+            "b": 246,
+            "a": 1
+          }
+        },
+        {
+          "type": "view",
+          "schemaName": "team_brunch_db",
+          "viewName": "employee_salary",
+          "x": 360,
+          "y": 1050,
+          "width": 291,
+          "height": 188,
+          "isBold": false,
+          "titleColor": {
+            "r": 100,
+            "g": 181,
+            "b": 246,
+            "a": 1
+          }
+        },
+        {
+          "type": "view",
+          "schemaName": "team_brunch_db",
+          "viewName": "organization_total_paid",
+          "x": 260,
+          "y": 30,
+          "width": 266,
+          "height": 88,
+          "isBold": false,
+          "titleColor": {
+            "r": 100,
+            "g": 181,
+            "b": 246,
+            "a": 1
+          }
+        },
+        {
+          "type": "view",
+          "schemaName": "team_brunch_db",
+          "viewName": "rockville_employees",
+          "x": 400,
+          "y": 690,
+          "width": 256,
+          "height": 168,
+          "isBold": false,
+          "titleColor": {
+            "r": 100,
+            "g": 181,
+            "b": 246,
+            "a": 1
+          }
+        },
+        {
+          "type": "view",
+          "schemaName": "team_brunch_db",
+          "viewName": "state_salary",
+          "x": 30,
+          "y": 1470,
+          "width": 320,
+          "height": 128,
+          "isBold": false,
+          "titleColor": {
+            "r": 100,
+            "g": 181,
+            "b": 246,
+            "a": 1
+          }
+        }
+      ],
+      "layers": [],
+      "relations": [
+        {
+          "name": "titles_fk_employees",
+          "sourceTableName": "emp_records",
+          "sourceSchemaName": "team_brunch_db",
+          "lineWidth": 1,
+          "visible": true,
+          "vertices": [
+            {
+              "x": 760,
+              "y": 960
+            },
+            {
+              "x": 805,
+              "y": 960
+            }
+          ],
+          "label": {
+            "x": 756,
+            "y": 962,
+            "width": 136,
+            "height": 30,
+            "fontName": "Arial Unicode MS",
+            "fontSize": 14,
+            "fontColor": {
+              "r": 51,
+              "g": 51,
+              "b": 51,
+              "a": 1
+            },
+            "isFontBold": false,
+            "isFontItalic": false,
+            "isVisible": false
+          }
+        },
+        {
+          "name": "departnments_fk_industries",
+          "sourceTableName": "departments",
+          "sourceSchemaName": "team_brunch_db",
+          "lineWidth": 1,
+          "visible": true,
+          "vertices": [
+            {
+              "x": 125,
+              "y": 770
+            },
+            {
+              "x": 90,
+              "y": 770
+            },
+            {
+              "x": 90,
+              "y": 1390
+            },
+            {
+              "x": 1310,
+              "y": 1390
+            },
+            {
+              "x": 1310,
+              "y": 1355
+            }
+          ],
+          "label": {
+            "x": 141,
+            "y": 772,
+            "width": 191,
+            "height": 30,
+            "fontName": "Arial Unicode MS",
+            "fontSize": 14,
+            "fontColor": {
+              "r": 51,
+              "g": 51,
+              "b": 51,
+              "a": 1
+            },
+            "isFontBold": false,
+            "isFontItalic": false,
+            "isVisible": false
+          }
+        },
+        {
+          "name": "org_emp_fk_departments",
+          "sourceTableName": "org_emp",
+          "sourceSchemaName": "team_brunch_db",
+          "lineWidth": 1,
+          "visible": true,
+          "vertices": [
+            {
+              "x": 320,
+              "y": 355
+            },
+            {
+              "x": 320,
+              "y": 695
+            }
+          ],
+          "label": {
+            "x": 328,
+            "y": 345,
+            "width": 176,
+            "height": 30,
+            "fontName": "Arial Unicode MS",
+            "fontSize": 14,
+            "fontColor": {
+              "r": 51,
+              "g": 51,
+              "b": 51,
+              "a": 1
+            },
+            "isFontBold": false,
+            "isFontItalic": false,
+            "isVisible": false
+          }
+        },
+        {
+          "name": "org_emp_fk_employees",
+          "sourceTableName": "org_emp",
+          "sourceSchemaName": "team_brunch_db",
+          "lineWidth": 1,
+          "visible": true,
+          "vertices": [
+            {
+              "x": 430,
+              "y": 355
+            },
+            {
+              "x": 430,
+              "y": 440
+            },
+            {
+              "x": 1120,
+              "y": 440
+            },
+            {
+              "x": 1120,
+              "y": 800
+            },
+            {
+              "x": 1005,
+              "y": 800
+            }
+          ],
+          "label": {
+            "x": 438,
+            "y": 345,
+            "width": 163,
+            "height": 30,
+            "fontName": "Arial Unicode MS",
+            "fontSize": 14,
+            "fontColor": {
+              "r": 51,
+              "g": 51,
+              "b": 51,
+              "a": 1
+            },
+            "isFontBold": false,
+            "isFontItalic": false,
+            "isVisible": false
+          }
+        },
+        {
+          "name": "org_emp_fk_organizations",
+          "sourceTableName": "org_emp",
+          "sourceSchemaName": "team_brunch_db",
+          "lineWidth": 1,
+          "visible": true,
+          "vertices": [
+            {
+              "x": 511,
+              "y": 300
+            },
+            {
+              "x": 1375,
+              "y": 300
+            }
+          ],
+          "label": {
+            "x": 507,
+            "y": 302,
+            "width": 183,
+            "height": 30,
+            "fontName": "Arial Unicode MS",
+            "fontSize": 14,
+            "fontColor": {
+              "r": 51,
+              "g": 51,
+              "b": 51,
+              "a": 1
+            },
+            "isFontBold": false,
+            "isFontItalic": false,
+            "isVisible": false
+          }
+        },
+        {
+          "name": "organizations_fk_industries",
+          "sourceTableName": "organizations",
+          "sourceSchemaName": "team_brunch_db",
+          "lineWidth": 1,
+          "visible": true,
+          "vertices": [
+            {
+              "x": 1570,
+              "y": 405
+            },
+            {
+              "x": 1570,
+              "y": 1290
+            },
+            {
+              "x": 1419,
+              "y": 1290
+            }
+          ],
+          "label": {
+            "x": 1578,
+            "y": 380,
+            "width": 189,
+            "height": 30,
+            "fontName": "Arial Unicode MS",
+            "fontSize": 14,
+            "fontColor": {
+              "r": 51,
+              "g": 51,
+              "b": 51,
+              "a": 1
+            },
+            "isFontBold": false,
+            "isFontItalic": false,
+            "isVisible": false
+          }
+        }
+      ],
+      "viewRelations": [
+        {
+          "name": "VR_company_record_organizations",
+          "sourceSchemaName": "team_brunch_db",
+          "sourceViewName": "company_record",
+          "targetSchemaName": "team_brunch_db",
+          "targetObjectName": "organizations",
+          "lineWidth": 1,
+          "lineColor": {
+            "r": 153,
+            "g": 153,
+            "b": 153,
+            "a": 1
+          },
+          "vertices": [
+            {
+              "x": 1473,
+              "y": 870
+            },
+            {
+              "x": 1500,
+              "y": 870
+            },
+            {
+              "x": 1500,
+              "y": 405
+            }
+          ]
+        },
+        {
+          "name": "VR_company_record_org_emp",
+          "sourceSchemaName": "team_brunch_db",
+          "sourceViewName": "company_record",
+          "targetSchemaName": "team_brunch_db",
+          "targetObjectName": "org_emp",
+          "lineWidth": 1,
+          "lineColor": {
+            "r": 153,
+            "g": 153,
+            "b": 153,
+            "a": 1
+          },
+          "vertices": [
+            {
+              "x": 1210,
+              "y": 794
+            },
+            {
+              "x": 1210,
+              "y": 390
+            },
+            {
+              "x": 460,
+              "y": 390
+            },
+            {
+              "x": 460,
+              "y": 355
+            }
+          ]
+        },
+        {
+          "name": "VR_company_record_employees",
+          "sourceSchemaName": "team_brunch_db",
+          "sourceViewName": "company_record",
+          "targetSchemaName": "team_brunch_db",
+          "targetObjectName": "employees",
+          "lineWidth": 1,
+          "lineColor": {
+            "r": 153,
+            "g": 153,
+            "b": 153,
+            "a": 1
+          },
+          "vertices": [
+            {
+              "x": 1164,
+              "y": 870
+            },
+            {
+              "x": 1005,
+              "y": 870
+            }
+          ]
+        },
+        {
+          "name": "VR_company_record_industries",
+          "sourceSchemaName": "team_brunch_db",
+          "sourceViewName": "company_record",
+          "targetSchemaName": "team_brunch_db",
+          "targetObjectName": "industries",
+          "lineWidth": 1,
+          "lineColor": {
+            "r": 153,
+            "g": 153,
+            "b": 153,
+            "a": 1
+          },
+          "vertices": [
+            {
+              "x": 1310,
+              "y": 954
+            },
+            {
+              "x": 1310,
+              "y": 1235
+            }
+          ]
+        },
+        {
+          "name": "VR_deduction_outstanding_employees",
+          "sourceSchemaName": "team_brunch_db",
+          "sourceViewName": "deduction_outstanding",
+          "targetSchemaName": "team_brunch_db",
+          "targetObjectName": "employees",
+          "lineWidth": 1,
+          "lineColor": {
+            "r": 153,
+            "g": 153,
+            "b": 153,
+            "a": 1
+          },
+          "vertices": [
+            {
+              "x": 920,
+              "y": 734
+            },
+            {
+              "x": 920,
+              "y": 745
+            }
+          ]
+        },
+        {
+          "name": "VR_deduction_outstanding_emp_records",
+          "sourceSchemaName": "team_brunch_db",
+          "sourceViewName": "deduction_outstanding",
+          "targetSchemaName": "team_brunch_db",
+          "targetObjectName": "emp_records",
+          "lineWidth": 1,
+          "lineColor": {
+            "r": 153,
+            "g": 153,
+            "b": 153,
+            "a": 1
+          },
+          "vertices": [
+            {
+              "x": 744,
+              "y": 630
+            },
+            {
+              "x": 710,
+              "y": 630
+            },
+            {
+              "x": 710,
+              "y": 885
+            }
+          ]
+        },
+        {
+          "name": "VR_deduction_outstanding_org_emp",
+          "sourceSchemaName": "team_brunch_db",
+          "sourceViewName": "deduction_outstanding",
+          "targetSchemaName": "team_brunch_db",
+          "targetObjectName": "org_emp",
+          "lineWidth": 1,
+          "lineColor": {
+            "r": 153,
+            "g": 153,
+            "b": 153,
+            "a": 1
+          },
+          "vertices": [
+            {
+              "x": 800,
+              "y": 534
+            },
+            {
+              "x": 800,
+              "y": 500
+            },
+            {
+              "x": 390,
+              "y": 500
+            },
+            {
+              "x": 390,
+              "y": 355
+            }
+          ]
+        },
+        {
+          "name": "VR_deduction_outstanding_organizations",
+          "sourceSchemaName": "team_brunch_db",
+          "sourceViewName": "deduction_outstanding",
+          "targetSchemaName": "team_brunch_db",
+          "targetObjectName": "organizations",
+          "lineWidth": 1,
+          "lineColor": {
+            "r": 153,
+            "g": 153,
+            "b": 153,
+            "a": 1
+          },
+          "vertices": [
+            {
+              "x": 1084,
+              "y": 580
+            },
+            {
+              "x": 1340,
+              "y": 580
+            },
+            {
+              "x": 1340,
+              "y": 360
+            },
+            {
+              "x": 1375,
+              "y": 360
+            }
+          ]
+        },
+        {
+          "name": "VR_employee_salary_employees",
+          "sourceSchemaName": "team_brunch_db",
+          "sourceViewName": "employee_salary",
+          "targetSchemaName": "team_brunch_db",
+          "targetObjectName": "employees",
+          "lineWidth": 1,
+          "lineColor": {
+            "r": 153,
+            "g": 153,
+            "b": 153,
+            "a": 1
+          },
+          "vertices": [
+            {
+              "x": 667,
+              "y": 1150
+            },
+            {
+              "x": 900,
+              "y": 1150
+            },
+            {
+              "x": 900,
+              "y": 1005
+            }
+          ]
+        },
+        {
+          "name": "VR_employee_salary_org_emp",
+          "sourceSchemaName": "team_brunch_db",
+          "sourceViewName": "employee_salary",
+          "targetSchemaName": "team_brunch_db",
+          "targetObjectName": "org_emp",
+          "lineWidth": 1,
+          "lineColor": {
+            "r": 153,
+            "g": 153,
+            "b": 153,
+            "a": 1
+          },
+          "vertices": [
+            {
+              "x": 344,
+              "y": 1150
+            },
+            {
+              "x": 40,
+              "y": 1150
+            },
+            {
+              "x": 40,
+              "y": 280
+            },
+            {
+              "x": 285,
+              "y": 280
+            }
+          ]
+        },
+        {
+          "name": "VR_employee_salary_emp_records",
+          "sourceSchemaName": "team_brunch_db",
+          "sourceViewName": "employee_salary",
+          "targetSchemaName": "team_brunch_db",
+          "targetObjectName": "emp_records",
+          "lineWidth": 1,
+          "lineColor": {
+            "r": 153,
+            "g": 153,
+            "b": 153,
+            "a": 1
+          },
+          "vertices": [
+            {
+              "x": 610,
+              "y": 1034
+            },
+            {
+              "x": 610,
+              "y": 1025
+            }
+          ]
+        },
+        {
+          "name": "VR_employee_salary_departments",
+          "sourceSchemaName": "team_brunch_db",
+          "sourceViewName": "employee_salary",
+          "targetSchemaName": "team_brunch_db",
+          "targetObjectName": "departments",
+          "lineWidth": 1,
+          "lineColor": {
+            "r": 153,
+            "g": 153,
+            "b": 153,
+            "a": 1
+          },
+          "vertices": [
+            {
+              "x": 400,
+              "y": 1034
+            },
+            {
+              "x": 400,
+              "y": 900
+            },
+            {
+              "x": 320,
+              "y": 900
+            },
+            {
+              "x": 320,
+              "y": 835
+            }
+          ]
+        },
+        {
+          "name": "VR_employee_salary_industries",
+          "sourceSchemaName": "team_brunch_db",
+          "sourceViewName": "employee_salary",
+          "targetSchemaName": "team_brunch_db",
+          "targetObjectName": "industries",
+          "lineWidth": 1,
+          "lineColor": {
+            "r": 153,
+            "g": 153,
+            "b": 153,
+            "a": 1
+          },
+          "vertices": [
+            {
+              "x": 500,
+              "y": 1254
+            },
+            {
+              "x": 500,
+              "y": 1290
+            },
+            {
+              "x": 1195,
+              "y": 1290
+            }
+          ]
+        },
+        {
+          "name": "VR_organization_total_paid_organizations",
+          "sourceSchemaName": "team_brunch_db",
+          "sourceViewName": "organization_total_paid",
+          "targetSchemaName": "team_brunch_db",
+          "targetObjectName": "organizations",
+          "lineWidth": 1,
+          "lineColor": {
+            "r": 153,
+            "g": 153,
+            "b": 153,
+            "a": 1
+          },
+          "vertices": [
+            {
+              "x": 542,
+              "y": 70
+            },
+            {
+              "x": 1500,
+              "y": 70
+            },
+            {
+              "x": 1500,
+              "y": 245
+            }
+          ]
+        },
+        {
+          "name": "VR_organization_total_paid_org_emp",
+          "sourceSchemaName": "team_brunch_db",
+          "sourceViewName": "organization_total_paid",
+          "targetSchemaName": "team_brunch_db",
+          "targetObjectName": "org_emp",
+          "lineWidth": 1,
+          "lineColor": {
+            "r": 153,
+            "g": 153,
+            "b": 153,
+            "a": 1
+          },
+          "vertices": [
+            {
+              "x": 390,
+              "y": 134
+            },
+            {
+              "x": 390,
+              "y": 215
+            }
+          ]
+        },
+        {
+          "name": "VR_rockville_employees_employees",
+          "sourceSchemaName": "team_brunch_db",
+          "sourceViewName": "rockville_employees",
+          "targetSchemaName": "team_brunch_db",
+          "targetObjectName": "employees",
+          "lineWidth": 1,
+          "lineColor": {
+            "r": 153,
+            "g": 153,
+            "b": 153,
+            "a": 1
+          },
+          "vertices": [
+            {
+              "x": 672,
+              "y": 800
+            },
+            {
+              "x": 805,
+              "y": 800
+            }
+          ]
+        },
+        {
+          "name": "VR_rockville_employees_org_emp",
+          "sourceSchemaName": "team_brunch_db",
+          "sourceViewName": "rockville_employees",
+          "targetSchemaName": "team_brunch_db",
+          "targetObjectName": "org_emp",
+          "lineWidth": 1,
+          "lineColor": {
+            "r": 153,
+            "g": 153,
+            "b": 153,
+            "a": 1
+          },
+          "vertices": [
+            {
+              "x": 430,
+              "y": 674
+            },
+            {
+              "x": 430,
+              "y": 640
+            },
+            {
+              "x": 350,
+              "y": 640
+            },
+            {
+              "x": 350,
+              "y": 355
+            }
+          ]
+        },
+        {
+          "name": "VR_rockville_employees_emp_records",
+          "sourceSchemaName": "team_brunch_db",
+          "sourceViewName": "rockville_employees",
+          "targetSchemaName": "team_brunch_db",
+          "targetObjectName": "emp_records",
+          "lineWidth": 1,
+          "lineColor": {
+            "r": 153,
+            "g": 153,
+            "b": 153,
+            "a": 1
+          },
+          "vertices": [
+            {
+              "x": 520,
+              "y": 874
+            },
+            {
+              "x": 520,
+              "y": 960
+            },
+            {
+              "x": 555,
+              "y": 960
+            }
+          ]
+        },
+        {
+          "name": "VR_rockville_employees_departments",
+          "sourceSchemaName": "team_brunch_db",
+          "sourceViewName": "rockville_employees",
+          "targetSchemaName": "team_brunch_db",
+          "targetObjectName": "departments",
+          "lineWidth": 1,
+          "lineColor": {
+            "r": 153,
+            "g": 153,
+            "b": 153,
+            "a": 1
+          },
+          "vertices": [
+            {
+              "x": 384,
+              "y": 770
+            },
+            {
+              "x": 372,
+              "y": 770
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
